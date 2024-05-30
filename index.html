@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <script type="module" crossorigin src="/assets/index-3woSsVHt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DN0RBxTi.css">
+  </head>
+  <body>
+    <main class="chat">
+      <div class="chat__inner container">
+        <div class="chat__body">
+          <div class="controls">
+            <button class="button-settings button" id="openSettingsButton" type="button">
+              Настройки
+              <span class="visually-hidden">Открыть настройки</span>
+            </button>
+            <button class="button-authorization button" id="LogOutButton" type="button">
+              Выйти
+              <span class="visually-hidden" id="LogOutSpan">Выйти из системы</span>
+            </button>
+          </div>
+          <button class="scroll-button button-icon--tertiary" id="ScrollButton">&#9660;</button>
+          <ul class="messages-list">
+            <template id="templateMessage">
+              <li class="message">
+                <div class="message__name body-s-bold"></div>
+                <div class="message__text"></div>
+                <div class="message__time body-s-regular"></div>
+              </li>
+            </template>
+          </ul>
+
+          <form class="form">
+            <textarea
+              class="form__textarea"
+              name="messageToSend"
+              id="messageToSend"
+              placeholder="Написать сообщение…"
+              autofocus
+            ></textarea>
+            <button class="form__button button-icon--primary">&#10148;</button>
+          </form>
+        </div>
+        <div class="connection">
+          <div class="connection-status disconnect" id="ConnectionStatus">disconnect</div>
+          <div class="connection-user-name" id="ConnectionUserName"></div>
+        </div>
+      </div>
+    </main>
+
+    <dialog class="modal modal-warning" id="modalWarning">
+      <div class="modal-warning__message" id="modalWarningMessage"></div>
+      <button class="modal__close-button button-icon--tertiary" id="closeWarningButton" type="button">
+        &#10006;
+        <span class="visually-hidden">Закрыть Настройки</span>
+      </button>
+    </dialog>
+
+    <div class="modal modal-settings hide" id="modalSettings">
+      <div class="modal__wrapper">
+        <div class="modal__close-button-wrapper">
+          <button class="modal__close-button button-icon--tertiary" id="closeSettingsButton" type="button">
+            &#10006;
+            <span class="visually-hidden">Закрыть Настройки</span>
+          </button>
+        </div>
+        <label class="modal__body" for="modalSettingsForm"
+          >Имя в чате
+          <form class="modal__form" id="modalSettingsForm" name="modalSettingsForm">
+            <input type="text" class="modal__form-input" id="modalSettingsInput" placeholder="Имя" />
+            <button class="modal__form-button button-icon--primary">Подтвердить</button>
+            <label class="theme-checkbox">
+              <input class="checkbox-default" type="checkbox" id="ThemeToggle" />
+              <span>
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z"
+                  ></path>
+                </svg>
+                Тёмная тема
+              </span>
+            </label>
+          </form>
+        </label>
+      </div>
+    </div>
+
+    <div class="modal modal-authorization hide" id="modalAuthorization">
+      <div class="modal__wrapper">
+        <div class="modal__close-button-wrapper"></div>
+        <label class="modal__body" for="modalAuthorizationForm"
+          >Почта
+          <form class="modal__form" id="modalAuthorizationForm" name="modalAuthorizationForm">
+            <input
+              type="email"
+              class="modal__form-input"
+              id="modalAuthorizationInput"
+              placeholder="Введите почту"
+              autocomplete
+              required
+            />
+            <button class="modal__form-button button" id="modalAuthorizationSendButton" type="submit">
+              Получить код
+            </button>
+            <button class="modal__form-button button" id="modalAuthorizationEnterCode" type="button">Ввести код</button>
+          </form>
+        </label>
+      </div>
+    </div>
+
+    <div class="modal modal-confirmation hide" id="modalConfirmation">
+      <div class="modal__wrapper">
+        <div class="modal__close-button-wrapper"></div>
+        <label class="modal__body" for="modalConfirmationForm"
+          >Код
+          <form class="modal__form" id="modalConfirmationForm" name="modalConfirmationForm">
+            <input
+              type="text"
+              class="modal__form-input"
+              id="modalConfirmationInput"
+              placeholder="Введите код"
+              autocomplete
+              required
+            />
+            <button class="modal__form-button button" id="modalConfirmationEnterButton" type="submit">Войти</button>
+            <button class="modal__form-button button" id="modalConfirmationBackButton" type="button">Назад</button>
+          </form>
+        </label>
+      </div>
+    </div>
+
+  </body>
+</html>
