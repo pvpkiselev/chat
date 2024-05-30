@@ -38,9 +38,9 @@ class UserSettingsRequests extends Request {
     const isDataExist = userInfo && name && email && token;
     if (!isDataExist) return;
 
-    Cookies.set(cookiesKeys.name, name);
-    Cookies.set(cookiesKeys.email, email);
-    Cookies.set(cookiesKeys.token, token);
+    Cookies.set(cookiesKeys.name, name, { expires: 1 });
+    Cookies.set(cookiesKeys.email, email, { expires: 1 });
+    Cookies.set(cookiesKeys.token, token, { expires: 1 });
   }
 }
 

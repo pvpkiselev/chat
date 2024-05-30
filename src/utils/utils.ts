@@ -1,5 +1,4 @@
-import { storageTheme } from '@/constants/constants';
-import { main, settings } from '@/elements/domElements';
+import { main } from '@/elements/domElements';
 
 const showElement = (element: HTMLElement | null) => {
   if (!element) return;
@@ -72,30 +71,6 @@ const isNeedToScroll = () => {
   }
 };
 
-const setTheme = (theme: string) => {
-  if (theme === storageTheme.dark) {
-    document.documentElement.classList.add('dark-theme');
-    settings.themeToggle?.setAttribute('checked', '');
-    localStorage.setItem(storageTheme.themeTitle, storageTheme.dark);
-  } else {
-    document.documentElement.classList.remove('dark-theme');
-    settings.themeToggle?.removeAttribute('checked');
-    localStorage.setItem(storageTheme.themeTitle, storageTheme.light);
-  }
-};
-
-const toggleTheme = () => {
-  const currentTheme = localStorage.getItem(storageTheme.themeTitle);
-  currentTheme === storageTheme.dark ? setTheme(storageTheme.light) : setTheme(storageTheme.dark);
-};
-
-const setContentLoadedTheme = () => {
-  const savedTheme = localStorage.getItem(storageTheme.themeTitle) || storageTheme.light;
-  setTheme(savedTheme);
-};
-
-document.addEventListener('DOMContentLoaded', setContentLoadedTheme);
-settings.themeToggle?.addEventListener('click', toggleTheme);
 main.scrollButton?.addEventListener('click', scrollToBottom);
 main.messagesList?.addEventListener('scroll', isNeedToScroll);
 

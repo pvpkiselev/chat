@@ -66,7 +66,7 @@ const handleConfirmation = async (event: SubmitEvent) => {
       throw new EmptyValueError();
     }
 
-    Cookies.set(cookiesKeys.token, newToken);
+    Cookies.set(cookiesKeys.token, newToken, { expires: 1 });
 
     initializeUserSession(newToken);
 

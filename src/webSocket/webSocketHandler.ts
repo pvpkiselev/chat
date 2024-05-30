@@ -38,8 +38,6 @@ class WebSocketHandler {
     showAlert('info', webSocketMessages.CONNECT);
     handleMessagesHistoryUpload();
 
-    console.log(`${webSocketHandler.webSocketStatus}: onopen`);
-
     showConnectionStatus(this.webSocketStatus);
   }
 
@@ -69,8 +67,6 @@ class WebSocketHandler {
     showAlert('error', `${webSocketMessages.CONNECTION_CLOSE} ${event.reason}`);
 
     this.webSocketStatus = false;
-
-    console.log(`${webSocketHandler.webSocketStatus}: onclose`);
 
     showConnectionStatus(this.webSocketStatus);
 
