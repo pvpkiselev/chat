@@ -1,0 +1,13 @@
+.button {
+  @include set-button(tertiary, m);
+}
+
+.button-icon--primary {
+  @include set-button(primary, l);
+  width: 48px;
+}
+
+.button-icon--tertiary {
+  @include set-button(tertiary, l);
+  width: 48px;
+}

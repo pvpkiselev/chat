@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@elements/*": ["./src/elements/*"],
+      "@errors/*": ["./src/errors/*"],
+      "@messages/*": ["./src/messages/*"],
+      "@requestHandlers/*": ["./src/requestHandlers/*"],
+      "@userSettings/*": ["./src/userSettings/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@webSocket/*": ["./src/webSocket/*"]
+    },
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "removeComments": false,
+    "noEmitOnError": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "alwaysStrict": false,
+    "allowUnreachableCode": true,
+    "allowJs": true,
+    "moduleDetection": "force",
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "sourceMap": true
+  },
+  "include": ["vite.config.js", "src"]
+}

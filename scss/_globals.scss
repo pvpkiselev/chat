@@ -1,0 +1,87 @@
+body {
+  font-family: var(--font-family-base);
+  @include set-font(m, regular);
+  color: var(--text-body-01);
+  background-color: var(--surface-white);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+.h1 {
+  @include set-font(h1, bold);
+}
+
+h2,
+.h2 {
+  @include set-font(h2, bold);
+}
+
+h3,
+.h3 {
+  @include set-font(h3, bold);
+}
+
+h4,
+.h4 {
+  @include set-font(h4, bold);
+}
+
+.body-l-regular {
+  @include set-font(l, regular);
+}
+
+.body-l-medium {
+  @include set-font(l, medium);
+}
+
+.body-l-bold {
+  @include set-font(l, bold);
+}
+
+.body-m-regular {
+  @include set-font(m, regular);
+}
+
+.body-m-medium {
+  @include set-font(m, medium);
+}
+
+.body-m-bold {
+  @include set-font(m, bold);
+}
+
+.body-s-regular {
+  @include set-font(s, regular);
+}
+
+.body-s-medium {
+  @include set-font(s, medium);
+}
+
+.body-s-bold {
+  @include set-font(s, bold);
+}
+
+.body-xs-regular {
+  @include set-font(xs, regular);
+}
+
+.body-xs-medium {
+  @include set-font(xs, medium);
+}
+
+.body-xs-bold {
+  @include set-font(xs, bold);
+}

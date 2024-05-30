@@ -1,0 +1,74 @@
+.theme-checkbox {
+  position: absolute;
+  bottom: var(--spacing-16);
+  left: var(--spacing-16);
+  span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+    background-color: var(--tertiary-default);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--tertiary-hover);
+    }
+
+    &:active {
+      background-color: var(--tertiary-active);
+    }
+
+    .btn-icon {
+      display: none;
+      visibility: hidden;
+      filter: invert(100%) sepia(2%) saturate(7462%) hue-rotate(100deg) brightness(108%) contrast(100%);
+    }
+  }
+
+  input[type='checkbox'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+
+    &:checked + span {
+      background-color: var(--secondary-default);
+      border: 2px solid var(--secondary-active);
+      color: var(--text-body-01);
+      font-weight: 500;
+
+      .btn-icon {
+        display: block;
+        visibility: inherit;
+      }
+    }
+
+    &:checked:hover + span {
+      color: var(--text-primary-default);
+      background-color: var(--secondary-hover);
+
+      .btn-icon {
+        filter: invert(15%) sepia(32%) saturate(3225%) hue-rotate(156deg) brightness(95%) contrast(102%);
+      }
+    }
+
+    &:checked:active + span {
+      color: var(--text-primary-default);
+      background-color: var(--secondary-active);
+
+      .btn-icon {
+        filter: invert(15%) sepia(32%) saturate(3225%) hue-rotate(156deg) brightness(95%) contrast(102%);
+      }
+    }
+  }
+}

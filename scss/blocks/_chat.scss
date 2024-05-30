@@ -1,0 +1,194 @@
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--surface-white);
+}
+
+.chat {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  input,
+  textarea {
+    color: var(--text-body-01);
+
+    &::placeholder {
+      color: var(--text-body-02);
+    }
+  }
+
+  &__inner {
+    padding-top: var(--spacing-40, 40px);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-border-light);
+    border-radius: var(--radius-m, 12px);
+    padding: 0;
+    overflow: hidden;
+    height: 80vh;
+
+    position: relative;
+
+    .scroll-button {
+      position: absolute;
+      bottom: 20%;
+      right: 3%;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--tertiary-default);
+      padding: var(--spacing-8, 8px);
+      border-bottom: 2px solid var(--border-light);
+
+      .button-settings {
+      }
+
+      .button-out {
+      }
+    }
+
+    .messages-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-8, 8px);
+      padding: var(--spacing-8, 8px);
+      flex-grow: 1;
+      overflow: auto;
+      background-color: var(--surface-white);
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--border-light);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--border-dark);
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--border-dark);
+      }
+
+      .message {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-8, 8px);
+        background-color: var(--tertiary-default);
+        gap: var(--spacing-4, 4px);
+        width: fit-content;
+        max-width: 100%;
+        border-radius: var(--radius-m) var(--radius-m) var(--radius-m) 0;
+
+        &.message-out {
+          align-self: flex-end;
+          background-color: var(--secondary-default);
+          border-radius: var(--radius-m) var(--radius-m) 0;
+        }
+
+        &__name {
+          min-width: 100%;
+        }
+
+        &__text {
+          display: flex;
+          flex-direction: column;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+
+          a {
+            color: var(--text-link-default);
+
+            &:hover {
+              color: var(--text-link-hover);
+              text-decoration: underline;
+            }
+
+            &:active {
+              color: var(--text-link-active);
+            }
+          }
+        }
+
+        &__time {
+          color: var(--text-body-02);
+          min-width: 100%;
+          text-align: end;
+        }
+      }
+    }
+
+    .form {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-8, 8px);
+      gap: var(--spacing-8, 8px);
+      background-color: var(--tertiary-default);
+      border-top: 2px solid var(--border-light);
+
+      &__textarea {
+        flex: 1;
+        resize: none;
+        height: 48px;
+        padding: var(--spacing-8, 8px) var(--spacing-12, 12px);
+        overflow: hidden;
+        text-align: left;
+        align-content: center;
+        border: none;
+        border-radius: var(--radius-m);
+        background-color: var(--tertiary-default);
+
+        &:focus-visible,
+        &:focus {
+          border: none;
+          outline: none;
+          box-shadow: var(--shadow-border-dark);
+        }
+
+        &::placeholder {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &__button {
+      }
+    }
+  }
+
+  .connection {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    padding: var(--spacing-16) 0;
+
+    &-status {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: var(--radius-m);
+      padding: 0 var(--spacing-16);
+    }
+  }
+}

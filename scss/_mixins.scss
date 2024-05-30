@@ -1,0 +1,154 @@
+/* prettier-ignore */
+@mixin set-font-size($size-key) {
+  $font-sizes: (
+    h1: (32, 44),
+    h2: (24, 36),
+    h3: (20, 28),
+    h4: (18, 24),
+    l: (18, 20),
+    m: (16, 18),
+    s: (14, 16),
+    xs: (12, 14),
+  );
+
+  $size: map-get($font-sizes, $size-key);
+
+  $min: nth($size, 1);
+  $max: nth($size, 2);
+
+  font-size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+}
+
+@mixin set-font-weight($weight-key) {
+  $font-weights: (
+    regular: 400,
+    medium: 500,
+    bold: 700
+  );
+  font-weight: map-get($font-weights, $weight-key);
+}
+
+@mixin set-font($size-key, $weight-key) {
+  @include set-font-size($size-key);
+  @include set-font-weight($weight-key);
+
+  @if $size-key == l or $size-key == m {
+    letter-spacing: -0.09px;
+  } @else if $size-key == s or $size-key == xs {
+    letter-spacing: 0;
+  }
+
+  @if $size-key == l or $size-key == m or $size-key == s or $size-key == xs {
+    line-height: 1.5;
+  } @else {
+    line-height: 1.2;
+  }
+}
+
+@mixin set-button($appearance, $size) {
+  $button-appearances: (
+    primary: (
+      color: var(--text-body-inverse-01),
+      background-color: var(--primary-default),
+      hover-background-color: var(--primary-hover),
+      active-background-color: var(--primary-active),
+      disabled-background-color: var(--primary-default)
+    ),
+    secondary: (
+      color: var(--text-primary-default),
+      background-color: var(--secondary-default),
+      hover-background-color: var(--secondary-hover),
+      active-background-color: var(--secondary-active),
+      disabled-background-color: var(--secondary-default),
+      disabled-color: var(--text-primary-default)
+    ),
+    tertiary: (
+      color: var(--text-body-01),
+      background-color: var(--tertiary-default),
+      hover-background-color: var(--tertiary-hover),
+      active-background-color: var(--tertiary-active),
+      disabled-background-color: var(--tertiary-default),
+      disabled-color: var(--text-body-01)
+    ),
+    flat: (
+      color: var(--text-body-01),
+      background-color: transparent,
+      hover-background-color: var(--tertiary-hover),
+      active-background-color: var(--tertiary-active),
+      disabled-background-color: var(--tertiary-default),
+      disabled-color: var(--text-body-01)
+    )
+  );
+
+  $button-sizes: (
+    m: (
+      font-size: 1rem,
+      height: 40px
+    ),
+    l: (
+      font-size: 1.125rem,
+      height: 48px
+    ),
+    xl: (
+      font-size: 1.25rem,
+      height: 56px
+    )
+  );
+
+  $button-color: map-get($button-appearances, $appearance);
+  $button-size: map-get($button-sizes, $size);
+
+  @include flex-center(true);
+  height: map-get($button-size, height);
+  background-color: map-get($button-color, background-color);
+  color: map-get($button-color, color);
+  font-size: map-get($button-size, font-size);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-m);
+  padding: 0 var(--spacing-16);
+  cursor: pointer;
+
+  &:hover {
+    background-color: map-get($button-color, hover-background-color);
+  }
+
+  &:active {
+    background-color: map-get($button-color, active-background-color);
+  }
+
+  &:disabled {
+    background-color: map-get($button-color, disabled-background-color);
+    color: map-get($button-color, disabled-color);
+    cursor: not-allowed;
+  }
+}
+
+@mixin reset-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1;
+}
+
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
