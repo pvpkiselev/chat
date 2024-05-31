@@ -1,10 +1,7 @@
 import { Request } from '@requestHandlers/requestHandler';
 import { apiUrl, errorMessages } from '@constants/constants';
 import { ResponseError } from '@errors/errors';
-
-type MessagesData = {
-  messages: [];
-};
+import type { MessagesData } from './messages.types';
 
 class MessagesRequests extends Request {
   async LoadMessageHistory() {

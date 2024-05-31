@@ -1,14 +1,8 @@
 import { apiUrl, errorMessages, cookiesKeys } from '@constants/constants';
 import { ResponseError } from '@errors/errors';
 import { Request } from '@requestHandlers/requestHandler';
+import type { UserInfo } from './userSettings.types';
 import Cookies from 'js-cookie';
-
-type UserInfo = {
-  name?: string;
-  _id?: string;
-  email?: string;
-  token?: string;
-};
 
 class UserSettingsRequests extends Request {
   async updateUserName(newName: string) {

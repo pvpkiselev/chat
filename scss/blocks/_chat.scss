@@ -23,6 +23,13 @@ body {
 
   &__inner {
     padding-top: var(--spacing-40, 40px);
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding: 0;
+    }
   }
 
   &__body {
@@ -36,6 +43,11 @@ body {
     height: 80vh;
 
     position: relative;
+
+    @include mobile {
+      height: 100%;
+      border-radius: 0;
+    }
 
     .scroll-button {
       position: absolute;
@@ -178,6 +190,10 @@ body {
     align-items: center;
     gap: var(--spacing-16);
     padding: var(--spacing-16) 0;
+
+    @include mobile {
+      padding: var(--spacing-16);
+    }
 
     &-status {
       display: inline-flex;

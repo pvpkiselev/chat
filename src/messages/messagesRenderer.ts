@@ -5,36 +5,7 @@ import { makeTemplateMessage, processWord } from './messagesUtils';
 import Cookies from 'js-cookie';
 import { StorageError } from '@/errors/errors';
 import { showAlert } from '@/utils/alerts';
-
-interface RequestedData {
-  createdAt: string;
-  text: string;
-  user: User;
-}
-
-interface User {
-  email: string;
-  name: string;
-}
-
-interface MessageRenderData {
-  name: string;
-  message: string;
-  time: string;
-  email: string;
-}
-
-interface RenderState {
-  currentStart: number;
-  loading: boolean;
-}
-
-interface RenderMessagesOptions {
-  messagesDataList: RequestedData[];
-  messagesList: HTMLElement;
-  partSize: number;
-  renderState: RenderState;
-}
+import type { RequestedData, MessageRenderData, RenderState, RenderMessagesOptions } from './messages.types';
 
 const createMessageItem = (messagesRenderData: MessageRenderData): HTMLElement | null => {
   try {

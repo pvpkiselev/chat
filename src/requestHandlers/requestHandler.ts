@@ -1,12 +1,7 @@
 import { showAlert } from '@/utils/alerts';
 import { cookiesKeys, successMessages } from '@constants/constants';
+import type { PostData } from './requestHandler.types';
 import Cookies from 'js-cookie';
-
-type PostData = {
-  email?: string;
-  name?: string;
-  message?: string;
-};
 
 class Request {
   async sendRequest(url: string, method: string, data?: PostData) {

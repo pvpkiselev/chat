@@ -1,12 +1,6 @@
 import { urlTestRegex } from '@/constants/constants';
 import { main } from '@elements/domElements';
-
-interface MessageTemplate {
-  messageItem: HTMLElement | null;
-  messageName: HTMLElement | null;
-  messageText: HTMLElement | null;
-  messageTime: HTMLElement | null;
-}
+import type { MessageTemplate } from './messages.types';
 
 const makeTemplateMessage = (): MessageTemplate => {
   const templateMessage = main.templateMessage?.content.cloneNode(true) as DocumentFragment | null;
