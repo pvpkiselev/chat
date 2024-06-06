@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
-    <script type="module" crossorigin src="/chat/assets/index-1n1hukZk.js"></script>
-    <link rel="stylesheet" crossorigin href="/chat/assets/index-BD2ZYsbz.css">
+    <script type="module" crossorigin src="/chat/assets/index-DmzcKgY5.js"></script>
+    <link rel="stylesheet" crossorigin href="/chat/assets/index-DcrJjkFI.css">
   </head>
   <body>
     <main class="chat">
@@ -16,6 +16,11 @@
               Настройки
               <span class="visually-hidden">Открыть настройки</span>
             </button>
+            <input class="search-input" id="SearchInput" placeholder="Поиск" type="search" />
+            <div class="search-block hide" id="SearchBlock">
+              <span class="search-title" id="SearchTitle"></span>
+              <ul class="search-list" id="SearchList"></ul>
+            </div>
             <button class="button-authorization button" id="LogOutButton" type="button">
               Выйти
               <span class="visually-hidden" id="LogOutSpan">Выйти из системы</span>
