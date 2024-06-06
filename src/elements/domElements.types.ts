@@ -31,6 +31,7 @@ type Warning = {
 };
 
 type Main = {
+  root: Element | null;
   chatWrapper: HTMLElement | null;
   messagesList: HTMLElement | null;
   form: HTMLFormElement | null;
@@ -39,6 +40,10 @@ type Main = {
   scrollButton: HTMLButtonElement | null;
   connectionStatus: HTMLElement | null;
   connectionUserName: HTMLElement | null;
+  searchInput: HTMLInputElement | null;
+  searchBlock: HTMLElement | null;
+  searchList: HTMLElement | null;
+  searchTitle: HTMLSpanElement | null;
 };
 
 export type { Settings, Auth, Confirm, Warning, Main };

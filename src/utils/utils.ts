@@ -1,5 +1,3 @@
-import { main } from '@/elements/domElements';
-
 const showElement = (element: HTMLElement | null) => {
   if (!element) return;
 
@@ -45,33 +43,4 @@ const generateId = () => {
   return id;
 };
 
-const scrollToBottom = () => {
-  const { messagesList } = main;
-  messagesList?.scrollTo({
-    top: messagesList.scrollHeight,
-    behavior: 'smooth'
-  });
-};
-
-const isNeedToScroll = () => {
-  const { messagesList, scrollButton } = main;
-  if (!messagesList || !scrollButton) return;
-
-  const SCROLL_THRESHOLD = 0.1;
-
-  const threshold = messagesList.scrollHeight * SCROLL_THRESHOLD;
-
-  const isScrolledToBottom =
-    messagesList.scrollTop + messagesList.clientHeight >= messagesList.scrollHeight - threshold;
-
-  if (isScrolledToBottom) {
-    hideElement(scrollButton);
-  } else {
-    showElement(scrollButton);
-  }
-};
-
-main.scrollButton?.addEventListener('click', scrollToBottom);
-main.messagesList?.addEventListener('scroll', isNeedToScroll);
-
-export { createTimeStamp, generateId, scrollToBottom, openModal, closeModal, showElement, hideElement };
+export { createTimeStamp, generateId, openModal, closeModal, showElement, hideElement };

@@ -2,6 +2,7 @@ import { initAuthorizationEvents, handleLogIn } from './authorization/authorizat
 import { initChangeNameEvents } from './userSettings/userSettingsHandlers';
 import { initMessageEvents } from './messages/messagesHandlers';
 import { setContentLoadedTheme } from './utils/themeToggler';
+import { initSearchEvents } from './messages/messagesSearch';
 
 document.addEventListener('DOMContentLoaded', async () => {
   handleLogIn();
@@ -9,4 +10,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initChangeNameEvents();
   initMessageEvents();
   setContentLoadedTheme();
+  initSearchEvents();
 });

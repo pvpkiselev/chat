@@ -33,6 +33,7 @@ const warning: Warning = {
 };
 
 const main: Main = {
+  root: document.querySelector(':root'),
   chatWrapper: document.querySelector('.chat'),
   messagesList: document.querySelector('.messages-list'),
   form: document.querySelector('.form'),
@@ -40,7 +41,11 @@ const main: Main = {
   templateMessage: document.querySelector('#templateMessage'),
   scrollButton: document.querySelector('#ScrollButton'),
   connectionStatus: document.querySelector('#ConnectionStatus'),
-  connectionUserName: document.querySelector('#ConnectionUserName')
+  connectionUserName: document.querySelector('#ConnectionUserName'),
+  searchInput: document.querySelector('#SearchInput'),
+  searchBlock: document.querySelector('#SearchBlock'),
+  searchList: document.querySelector('#SearchList'),
+  searchTitle: document.querySelector('#SearchTitle')
 };
 
 export type { Warning };

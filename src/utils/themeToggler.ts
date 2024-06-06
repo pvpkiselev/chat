@@ -1,13 +1,13 @@
 import { storageTheme } from '@/constants/constants';
-import { settings } from '@/elements/domElements';
+import { main, settings } from '@/elements/domElements';
 
 const setTheme = (theme: string) => {
   if (theme === storageTheme.dark) {
-    document.documentElement.classList.add('dark-theme');
+    main.root?.classList.add('dark-theme');
     settings.themeToggle?.setAttribute('checked', '');
     localStorage.setItem(storageTheme.themeTitle, storageTheme.dark);
   } else {
-    document.documentElement.classList.remove('dark-theme');
+    main.root?.classList.remove('dark-theme');
     settings.themeToggle?.removeAttribute('checked');
     localStorage.setItem(storageTheme.themeTitle, storageTheme.light);
   }

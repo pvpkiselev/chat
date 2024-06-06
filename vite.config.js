@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   base: '/chat',
-  plugins: [tsconfigPaths()]
-});
+  plugins: [tsconfigPaths()],
+})

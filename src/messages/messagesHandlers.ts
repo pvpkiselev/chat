@@ -1,20 +1,13 @@
-import { messagesRequests } from './messagesRequests';
 import { ResponseError, EmptyValueError } from '@errors/errors';
 import { main } from '@elements/domElements';
-import type { RequestedData } from '@/messages/messagesRenderer';
-import { initRenderMessagesInParts } from '@/messages/messagesRenderer';
 import { successMessages } from '@constants/constants';
 import { webSocketHandler } from '@/webSocket/webSocketHandler';
 import { showAlert } from '@/utils/alerts';
+import { fetchAndLazyLoadMessages } from './messagesLazyLoad';
 
-const handleMessagesHistoryUpload = async () => {
+const handleMessagesHistoryUpload = () => {
   try {
-    const messagesDataList: RequestedData[] = await messagesRequests.LoadMessageHistory();
-    const { messagesList } = main;
-
-    if (!messagesList) return;
-
-    initRenderMessagesInParts(messagesDataList, messagesList);
+    fetchAndLazyLoadMessages();
     showAlert('success', successMessages.MESSAGE_HISTORY);
   } catch (error) {
     const typedError = error as ResponseError;

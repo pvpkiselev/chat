@@ -66,9 +66,7 @@
   --success-text: var(--success-700);
   --success-bg: var(--success-500);
   --success-ghost-bg: var(--success-50);
-}
 
-:root {
   --shadow-border-light: 0px 0px 0px 2px var(--neutral-200);
   --shadow-border-dark: 0px 0px 0px 2px var(--neutral-500);
 
@@ -100,6 +98,8 @@
   --container-padding-x: var(--spacing-16, 16px);
 
   --transition-duration: 0.25;
+
+  color-scheme: light;
 }
 
 .dark-theme {
@@ -118,4 +118,6 @@
 
   --border-light: var(--neutral-600);
   --border-dark: var(--neutral-800);
+
+  color-scheme: dark;
 }

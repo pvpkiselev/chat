@@ -34,13 +34,11 @@ const webSocketMessages = {
   CONNECTION_CLOSE: 'Соединение закрыто',
   LOGOUT: 'Выход',
   MESSAGE_ERROR: 'Ошибка загрузки сообщения',
-  PARSE_ERROR: 'Ошибка парсинга сообщения',
-  ONLINE: 'connect',
-  OFFLINE: 'disconnect'
+  PARSE_ERROR: 'Ошибка парсинга сообщения'
 };
 
 const renderMessages = {
-  LOADING: 'Загружаем ещё сообщения',
+  LOADING: 'Загружаем сообщения',
   END: 'Все сообщения загружены'
 };
 
@@ -53,6 +51,11 @@ const storageTheme = {
 const urlTestRegex = {
   link: /(https?:\/\/[^\s]+)/g,
   image: /\.(jpg|jpeg|png|gif|svg)$/i
+};
+
+const searchMessages = {
+  found: 'Результаты поиска:',
+  none: 'Нет результатов'
 };
 
 const apiUrl = import.meta.env.VITE_API_URL as string;
@@ -68,5 +71,6 @@ export {
   webSocketMessages,
   renderMessages,
   storageTheme,
-  urlTestRegex
+  urlTestRegex,
+  searchMessages
 };
